@@ -36,8 +36,6 @@ class NGRDA(Optimizer):
         for t, g in zip(theta, grads):
             ss += K.sum(t * g)
 
-        print(ss)
-
         for p, g, a, t in zip(params, grads, accumulators, theta):
             new_t = (1 - lr) * t + delta * g - delta * (1 - lr) * ss * g
             self.updates.append(K.update(t, new_t))
