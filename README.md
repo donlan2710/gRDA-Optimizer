@@ -18,12 +18,17 @@ Best Options for learning rate (lr), mu (mu), and smoothing constant (c) in gRDA
 Suppose the loss function is the categorical crossentropy,
 
 ``` python
-opt = gRDA()
+from grda import GRDA
+
+opt = GRDA()
 model.compile(optimizer = opt, loss='categorical_crossentropy', metrics=['accuracy'])
 ```
 
 ### With Tensorflow
 ``` python
+from grda_tensorflow import GRDA
+
 opt = GRDA(learning_rate = 0.005, c = 0.005, mu = 0.51)
 opt_r = opt.minimize(R_loss, var_list = r_vars)
 sess.run([R_loss, opt_r], feed_dict = {data: train_x, y: train_y})
+```
