@@ -1,6 +1,6 @@
 # gRDA-Optimizer
 
-Stochastic Mirror Descent Optimizer
+Generalized Regularized Dual Averaging
 
 ## Requirements
     Keras version
