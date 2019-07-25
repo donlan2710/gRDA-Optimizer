@@ -3,8 +3,8 @@
 Generalized Regularized Dual Averaging
 
 ## Requirements
-    Keras version > 2.9
-    Tensorflow version
+    Keras version >= 2.9
+    Tensorflow version >= 1.14.0
 
 ## How to use
 
