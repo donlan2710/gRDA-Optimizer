@@ -35,7 +35,7 @@ allcounts = np.sum([x.size for x in model.get_weights()])
 print(allcounts)
 
 model.summary()
-optimizer = GRDA(lr=0.005, c=0.001, mu=0.5 ) # Using Adam instead of SGD to speed up training
+optimizer = GRDA(lr=0.005, c=0.001, mu=0.5 ) 
 model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=["accuracy"])
 print("Finished compiling")
 print("Building model...")
