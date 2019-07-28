@@ -11,7 +11,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 from keras import backend as K
 from grda import GRDA
-from ngrda import NGRDA
+#from ngrda import NGRDA
 import pandas as pd
 
 batch_size = 100
