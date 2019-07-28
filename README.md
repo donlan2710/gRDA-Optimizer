@@ -47,7 +47,7 @@ with tf.Session(config=session_conf) as sess:
 
 This can be unstable with Mac, see https://github.com/plaidml/plaidml/issues/168. To run, define the softthreshold function in the plaidml backend file (plaidml/keras):
 
-```
+```python
 def softthreshold(x, t):
      x = clip(x, -t, t) * (builtins.abs(x) - t) / t
      return x
@@ -55,7 +55,7 @@ def softthreshold(x, t):
 
 In the main file, add the following before importing other libraries
 
-```
+```python
 import plaidml.keras
 plaidml.keras.install_backend()
 
