@@ -45,7 +45,7 @@ with tf.Session(config=session_conf) as sess:
 
 ### With PlaidML 
 
-This can be unstable with Mac, see https://github.com/plaidml/plaidml/issues/168. To run, define the softthreshold function in the plaidml backend file (plaidml/keras):
+Be cautious that it can be unstable with Mac when GPU is implemented, see https://github.com/plaidml/plaidml/issues/168. To run, define the softthreshold function in the plaidml backend file (plaidml/keras):
 
 ```python
 def softthreshold(x, t):
