@@ -42,3 +42,21 @@ with tf.Session(config=session_conf) as sess:
         for b in range(batches):
             sess.run([R_loss, opt_r], feed_dict = {data: train_x, y: train_y})
 ```
+
+### With PlaidML 
+
+This can be unstable with Mac: https://github.com/plaidml/plaidml/issues/168
+To run, define the softthreshold function in the plaidml backend file (plaidml/keras):
+
+```
+def softthreshold(x, t):
+     x = clip(x, -t, t) * (builtins.abs(x) - t) / t
+     return x
+```
+
+In the main file, add the following before importing other libraries
+
+```
+import plaidml.keras
+plaidml.keras.install_backend()
+```
