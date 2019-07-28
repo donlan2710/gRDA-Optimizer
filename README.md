@@ -2,6 +2,8 @@
 
 Generalized Regularized Dual Averaging
 
+Paper preprint is coming soon.
+
 ## Requirements
     Keras version >= 2.9
     Tensorflow version >= 1.14.0
