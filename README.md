@@ -58,4 +58,6 @@ In the main file, add the following before importing other libraries
 ```
 import plaidml.keras
 plaidml.keras.install_backend()
+
+from grda_plaidml import GRDA
 ```
