@@ -2,16 +2,10 @@
 
 Generalized Regularized Dual Averaging
 
-Several results by implementing the optimizer gRDA and other well-known optimizers:
-
-![Test Accuracy using MNIST](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/mnist_mlp_acc_test_multiopt.PNG)
-![Nonzero Weights using MNIST](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/mnist_mlp_nonzero_weights_multiopt.PNG)
-
-![Test Accuracy using CIFAR-10](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png)
-![Nonzero Weights using CIFAR-10](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png)
-
-![Test Accuracy using CIFAR-10, DenseNet 40-12](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/DenseNet_cifar_acc_test_multiopt.png)
-![Nonzeo Weights using CIFAR-10, DenseNet 40-12](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/DenseNet_cifar_nonzero_weights_multiopt.png)
+<p
+<img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=60%/>
+<img src = 'https://github.com/donlan2710/github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=60%/>
+</p>
 
 Paper preprint is coming soon.
 
