@@ -1,6 +1,8 @@
 # gRDA-Optimizer
 
-Generalized Regularized Dual Averaging. Paper preprint is coming soon.
+Generalized Regularized Dual Averaging is an optimizer that can learn small subnetworks. Paper preprint is coming soon.
+
+Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam.
 
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=45%/> <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=45%/>
 
@@ -11,9 +13,9 @@ Generalized Regularized Dual Averaging. Paper preprint is coming soon.
 ## How to use
 
 Best Options for learning rate (lr), mu (mu), and smoothing constant (c) in gRDA optimizer  
-    lr: 0 < lr < 0.05  
-    mu: 0 < mu < 1  
-    c: 0 < c < 0.05  
+    lr: learning rate is a small value.
+    mu: 0 < mu < 1. The greater the value, the network will be more sparse, without sacrificing the testing accuracy.
+    c: a small number, e.g. 0 < c < 0.05. This usually has small effect on the performance.
 
 ### With Keras
 
