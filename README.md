@@ -2,11 +2,8 @@
 
 Generalized Regularized Dual Averaging
 
-<img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=60%/>
-<img src = 'https://github.com/donlan2710/github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=60%/>
-
-![Nonzero Weights using CIFAR-10](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png =100x20)
-
+<img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=50%/>
+<img src = 'https://github.com/donlan2710/github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=50%/>
 
 Paper preprint is coming soon.
 
