@@ -12,7 +12,7 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 
 ## How to use
 
-Best Options for learning rate (lr), mu (mu), and smoothing constant (c) in gRDA optimizer  
+There are three hyperparameters: Learning rate lr, sparsity control mu (mu), and initial sparse constant in gRDA optimizer  
     lr: learning rate is a small value.
     mu: 0 < mu < 1. The greater the value, the network will be more sparse, without sacrificing the testing accuracy.
     c: a small number, e.g. 0 < c < 0.05. This usually has small effect on the performance.
