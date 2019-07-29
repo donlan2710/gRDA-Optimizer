@@ -2,7 +2,7 @@
 
 Generalized Regularized Dual Averaging
 
-![Nonzero Weights using CIFAR-10](https://github.com/donlan2710/github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png)
+![Nonzero Weights using CIFAR-10](https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png)
 
 
 Paper preprint is coming soon.
