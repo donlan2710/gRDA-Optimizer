@@ -4,7 +4,7 @@ Generalized Regularized Dual Averaging
 
 <p
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=50%/> <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=50%/>
-p/>
+/p>
 Paper preprint is coming soon.
 
 ## Requirements
