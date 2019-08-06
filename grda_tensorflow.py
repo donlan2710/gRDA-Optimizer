@@ -17,8 +17,7 @@ class GRDA(optimizer.Optimizer):
     def __init__(self, learning_rate=0.005, c = 0.005, mu=0.7, use_locking=False, name="GRDA"):
         """Construct a new GRDA optimizer.
         Args:
-            learning_rate: A Tensor or a floating point value. The 
-                learning rate.
+            learning_rate: A Tensor or a floating point value. The learning rate.
             c: A float value or a constant float tensor. Turn on/off the l1 penalty and initial penalty.
             mu: A float value or a constant float tensor. Time expansion of l1 penalty. 
             name: Optional name for the operations created when applying gradients.
