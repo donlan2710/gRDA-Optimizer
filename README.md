@@ -18,7 +18,7 @@ There are three hyperparameters: Learning rate (lr), sparsity control mu (mu), a
 * mu: 0 < mu < 1. The greater the value, the network will be more sparse, without sacrificing the testing accuracy.
 * c: a small number, e.g. 0 < c < 0.05. This usually has small effect on the performance.
 
-### With Keras
+### Keras
 
 Suppose the loss function is the categorical crossentropy,
 
@@ -29,7 +29,7 @@ opt = GRDA()
 model.compile(optimizer = opt, loss='categorical_crossentropy', metrics=['accuracy'])
 ```
 
-### With Tensorflow
+### Tensorflow
 ``` python
 from grda_tensorflow import GRDA
 
@@ -46,7 +46,7 @@ with tf.Session(config=session_conf) as sess:
             sess.run([R_loss, opt_r], feed_dict = {data: train_x, y: train_y})
 ```
 
-### With PlaidML 
+### PlaidML 
 
 Be cautious that it can be unstable with Mac when GPU is implemented, see https://github.com/plaidml/plaidml/issues/168. 
 
