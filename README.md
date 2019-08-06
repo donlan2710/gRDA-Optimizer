@@ -66,4 +66,4 @@ plaidml.keras.install_backend()
 
 from grda_plaidml import GRDA
 ```
-Then the optimizer can be applied in exactly the same way as Keras.
+Then the optimizer can be used in the same way as Keras.
