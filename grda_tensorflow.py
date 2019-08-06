@@ -28,14 +28,13 @@ class GRDA(optimizer.Optimizer):
         self._learning_rate = learning_rate
         self._c = c
         self._mu = mu
-        # self._global_step = global_step
-        # self._global_step_on_worker = None
         self._learning_rate_tensor = None
 
 
     def _create_slots(self, var_list):
         for v in var_list:
             with ops.colocate_with(v):
+                # random initializer for dual accumulator 
                 v_ini = random_ops.random_uniform(
                     shape=v.get_shape(), minval = -0.1, maxval = 0.1, dtype=v.dtype.base_dtype, seed = 123)
             self._get_or_make_slot(v, v_ini, "accumulator", self._name)
@@ -54,9 +53,6 @@ class GRDA(optimizer.Optimizer):
     def _prepare(self):
         self._learning_rate_tensor = ops.convert_to_tensor(
             self._learning_rate, name="learning_rate")
-        # with ops.colocate_with(self._learning_rate_tensor):
-        #     self._global_step_on_worker = array_ops.identity(self._global_step) + 1
-
 
     def _apply_dense(self, grad, var):
         lr = math_ops.cast(self._learning_rate_tensor, var.dtype.base_dtype)
@@ -64,18 +60,14 @@ class GRDA(optimizer.Optimizer):
         v = self.get_slot(var, "accumulator")
         v_t = state_ops.assign(v, v - lr * grad, use_locking=self._use_locking)
 
-        # with ops.device(var.device):
-        #     global_step = math_ops.cast(self._global_step_on_worker, var.dtype.base_dtype)
         iter_ = self._get_iter_variable()
         iter_ = math_ops.cast(iter_, var.dtype.base_dtype)
 
         c = math_ops.cast(self._c, var.dtype.base_dtype)
         mu = math_ops.cast(self._mu, var.dtype.base_dtype)
-        #l1 = math_ops.cast(c * math_ops.pow(lr, (0.5 + mu)) * math_ops.pow(global_step, mu), var.dtype.base_dtype)
         l1 = math_ops.cast(c * math_ops.pow(lr, (0.5 + mu)) * math_ops.pow(iter_, mu), var.dtype.base_dtype)
 
-        # GRDA
-
+        # GRDA update
         var_update = state_ops.assign(var, math_ops.sign(v_t) * math_ops.maximum(math_ops.abs(v_t) - l1, 0), use_locking=self._use_locking)
         return control_flow_ops.group(*[var_update, v_t])
 
