@@ -6,6 +6,10 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=46%/> <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=46%/>
 
+## Update
+
+08/07/2019: A bug grda_tensorflow.py is fixed
+
 ## Requirements
     Keras version >= 2.9
     Tensorflow version >= 1.14.0
