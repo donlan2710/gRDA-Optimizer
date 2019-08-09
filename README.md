@@ -29,7 +29,7 @@ Suppose the loss function is the categorical crossentropy,
 ``` python
 from grda import GRDA
 
-opt = GRDA()
+opt = GRDA(lr = 0.005, c = 0.005, mu = 0.7)
 model.compile(optimizer = opt, loss='categorical_crossentropy', metrics=['accuracy'])
 ```
 
