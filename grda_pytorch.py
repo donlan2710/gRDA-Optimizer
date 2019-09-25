@@ -28,7 +28,8 @@ class gRDA(Optimizer):
                 
                 if 'iter_num' not in param_state:
                     iter_num = param_state['iter_num'] = torch.zeros(1)
-                    accumulator = param_state['accumulator'] = torch.FloatTensor(p.shape).uniform_(-0.1, 0.1).to(p.device)
+                    accumulator = param_state['accumulator'] = torch.FloatTensor(p.shape).to(p.device)
+                    accumulator.data = p.clone()
                 else:
                     iter_num = param_state['iter_num']
                     accumulator = param_state['accumulator']

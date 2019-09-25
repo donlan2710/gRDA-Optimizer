@@ -19,8 +19,7 @@ class GRDA(Optimizer):
     @interfaces.legacy_get_updates_support
     def get_updates(self, loss, params):
         grads = self.get_gradients(loss, params)
-        shapes = [K.int_shape(p) for p in params]
-        accumulators = [K.random_uniform_variable(shape, low=-0.1, high=0.1, seed=123) for shape in shapes]
+        accumulators = [K.variable(value = K.get_value(p), dtype='float32') for p in params]
         self.updates = [K.update_add(self.iterations, 1)]
 
         lr = self.lr
