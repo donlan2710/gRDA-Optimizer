@@ -51,6 +51,16 @@ with tf.Session(config=session_conf) as sess:
         for b in range(batches):
             sess.run([R_loss, opt_r], feed_dict = {data: train_x, y: train_y})
 ```
+### PyTorch
+You can check the test file `mnist_test_pytorch.py`. 
+The essential part is below.
+``` python
+from grda_pytorch import gRDA
+
+optimizer = gRDA(model.parameters(), lr=0.005, c=0.1, mu=0.5)
+# loss.backward()
+# optimizer.step()
+```
 
 ### PlaidML 
 
