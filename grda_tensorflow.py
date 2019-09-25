@@ -56,12 +56,19 @@ class GRDA(optimizer.Optimizer):
     def _apply_dense(self, grad, var):
         lr = math_ops.cast(self._learning_rate_tensor, var.dtype.base_dtype)
 
-        v = self.get_slot(var, "accumulator")
-        v_t = state_ops.assign(v, v - lr * grad, use_locking=self._use_locking)
+        #v = self.get_slot(var, "accumulator")
+        #v_t = state_ops.assign(v, v - lr * grad, use_locking=self._use_locking)
 
         iter_ = self._get_iter_variable()
         iter_ = math_ops.cast(iter_, var.dtype.base_dtype)
+        v = self.get_slot(var, "accumulator")
 
+        if iter_==1:
+            v_t = state_ops.assign(v, var - lr.grad, use_locking=self._use_locking)
+        else:
+            v_t = state_ops.assign(v, v - lr * grad, use_locking=self._use_locking)
+        
+        
         c = math_ops.cast(self._c, var.dtype.base_dtype)
         mu = math_ops.cast(self._mu, var.dtype.base_dtype)
         l1 = math_ops.cast(c * math_ops.pow(lr, (0.5 + mu)) * math_ops.pow(iter_, mu), var.dtype.base_dtype)
