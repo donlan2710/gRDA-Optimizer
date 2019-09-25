@@ -63,11 +63,8 @@ class GRDA(optimizer.Optimizer):
         iter_ = math_ops.cast(iter_, var.dtype.base_dtype)
         v = self.get_slot(var, "accumulator")
 
-        if iter_==1:
-            v_t = state_ops.assign(v, var - lr.grad, use_locking=self._use_locking)
-        else:
-            v_t = state_ops.assign(v, v - lr * grad, use_locking=self._use_locking)
-        
+        tmp = tf.cond(tf.equal(iter_,0), lambda: var, lambda: v)
+        v_t = state_ops.assign(v, tmp - lr*grad, use_locking=self._use_locking)
         
         c = math_ops.cast(self._c, var.dtype.base_dtype)
         mu = math_ops.cast(self._mu, var.dtype.base_dtype)
