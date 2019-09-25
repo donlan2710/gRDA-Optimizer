@@ -11,7 +11,7 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 08/07/2019: A bug in ```grda_tensorflow.py``` is fixed
 
 ## Requirements
-    Keras version >= 2.9
+    Keras version >= 2.2.5
     Tensorflow version >= 1.14.0
 
 ## How to use
