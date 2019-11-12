@@ -29,15 +29,21 @@ class gRDA(Optimizer):
                 if 'iter_num' not in param_state:
                     iter_num = param_state['iter_num'] = torch.zeros(1)
                     accumulator = param_state['accumulator'] = torch.FloatTensor(p.shape).to(p.device)
+                    l1_accumulation = param_state['l1_accumulation'] = torch.zeros(1)
                     accumulator.data = p.clone()
+
                 else:
                     iter_num = param_state['iter_num']
                     accumulator = param_state['accumulator']
+                    l1_accumulation = param_state['l1_accumulation']
                 iter_num.add_(1)
-                accumulator.data.add_(-group['lr'], d_p)
+                accumulator.data.add_(-lr, d_p)
 
-                l1 = c * torch.pow(torch.tensor(lr), 0.5 + mu) * torch.pow(iter_num, mu)
-                new_a_l1 = torch.abs(accumulator.data) - l1.to(p.device)
+                # l1 = c * torch.pow(torch.tensor(lr), 0.5 + mu) * torch.pow(iter_num, mu)
+                l1_diff = c * torch.pow(torch.tensor(lr), mu + 0.5) * torch.pow(iter_num, mu) - c * torch.pow(torch.tensor(lr), mu + 0.5) * torch.pow(iter_num - 1, mu)
+                l1_accumulation += l1_diff
+                
+                new_a_l1 = torch.abs(accumulator.data) - l1_accumulation.to(p.device)
                 p.data = torch.sign(accumulator.data) * new_a_l1.clamp(min=0)
-                    
+                
         return loss
