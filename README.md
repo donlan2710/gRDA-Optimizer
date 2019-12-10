@@ -1,6 +1,6 @@
 # gRDA-Optimizer
 
-"Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. Paper preprint is coming soon.
+"Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. Paper preprint https://arxiv.org/pdf/1909.10072.pdf.
 
 Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam, respectively.
 
