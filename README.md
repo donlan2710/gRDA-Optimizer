@@ -62,7 +62,7 @@ optimizer = gRDA(model.parameters(), lr=0.005, c=0.1, mu=0.5)
 # optimizer.step()
 ```
 
-See ```mnist_test_pytorch.py``` for an illustration for customizing the learning rate schedule.
+See ```mnist_test_pytorch.py``` for an illustration on customized learning rate schedule.
 
 ### PlaidML 
 
