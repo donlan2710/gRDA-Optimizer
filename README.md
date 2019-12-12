@@ -62,6 +62,8 @@ optimizer = gRDA(model.parameters(), lr=0.005, c=0.1, mu=0.5)
 # optimizer.step()
 ```
 
+See mnist_test_pytorch.py for an illustration for customizing the learning rate schedule.
+
 ### PlaidML 
 
 Be cautious that it can be unstable with Mac when GPU is implemented, see https://github.com/plaidml/plaidml/issues/168. 
