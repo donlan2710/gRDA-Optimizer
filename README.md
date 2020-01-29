@@ -23,7 +23,7 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 There are three hyperparameters: Learning rate (lr), sparsity control mu (mu), and initial sparse control constant (c) in gRDA optimizer.
 
 * lr: as a rule of thumb, use the learning rate for SGD. Scale the learning rate with the batch size.
-* mu: 0.5 < mu < 1. The greater the value, the network will be more sparse, without sacrificing the testing accuracy.
+* mu: 0.5 < mu < 1. Greater mu will make the parameters more sparse. For large tasks, e.g. ImageNet, mu can set close to 0.5, e.g. 0.501. For small task, e.g. CIFAR-10, mu can be 0.7.
 * c: a small number, e.g. 0 < c < 0.05. This usually has small effect on the performance.
 
 ### Keras
