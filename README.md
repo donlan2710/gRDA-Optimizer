@@ -87,3 +87,19 @@ plaidml.keras.install_backend()
 from grda_plaidml import GRDA
 ```
 Then the optimizer can be used in the same way as Keras.
+
+### Experiments
+
+#### ResNet-50 on ImageNet 
+
+These PyTorch models are based on the official implementation: [https://github.com/pytorch/examples/blob/master/imagenet/main.py](https://github.com/pytorch/examples/blob/master/imagenet/main.py)
+
+| lr schedule                                   | c     | mu    | epoch | sparsity | top1 accuracy | file size | link                                                                       |
+|-----------------------------------------------|-------|-------|-------|----------|---------------|-----------|----------------------------------------------------------------------------|
+| fix lr=0.1 (SGD, no momentum or weight decay) | /     | /     | 89    | /        | 68.71         | 98MB      | [link](https://drive.google.com/open?id=1PRkLaINIS14D3l553X1ncVBjqL5ua3Np) |
+| fix lr=0.1                                    | 0.005 | 0.55  | 145   | 91.54    | 69.76         | 195MB     | [link](https://drive.google.com/open?id=1nzjT1dcZnagWdtkK14wHCDI54UrmphCH) |
+| fix lr=0.1                                    | 0.005 | 0.51  | 136   | 87.38    | 70.35         | 195MB     | [link](https://drive.google.com/open?id=1PQ2C5kNOvl0NpDa-_h9YxlW0BD5pMylZ) |
+| fix lr=0.1                                    | 0.005 | 0.501 | 145   | 86.03    | 70.60         | 195MB     | [link](https://drive.google.com/open?id=12o3hUHV5ffjcBkN5xos5qFG8365Wk2xl) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.55  | 150   | 91.59    | 73.24         | 195MB     | [link](https://drive.google.com/open?id=1jBFmHmtsPsoIS5KjApjv8ohoJ5_RQqPx) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.51  | 146   | 87.28    | 73.14         | 195MB     | [link](https://drive.google.com/open?id=1UlwjvFO-Oxl9VVV36k5UrWZXWhh2nvDN) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.501 | 148   | 86.09    | 73.13         | 195MB     | [link](https://drive.google.com/open?id=1MQt6T7fc6SZlmMdGM6jOpaKHG6Ca5ulr) |
