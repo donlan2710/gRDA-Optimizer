@@ -1,6 +1,8 @@
 # gRDA-Optimizer
 
-"Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. Paper preprint is coming soon.
+"Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. 
+
+#### Citation: Chao, S.-K. and Cheng, G. (2019). gRDA and its dynamics. https://arxiv.org/pdf/1909.10072.pdf
 
 Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam, respectively.
 
@@ -8,9 +10,7 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 
 ## Update
 
-09/25/2019: A bug with the initializer in ```grda.py```, ```grda_plaidml.py``` and ```grda_pytorch.py``` is fixed.
-
-08/07/2019: A bug in ```grda_tensorflow.py``` is fixed.
+02/27/2020: upload the trained parameters of ResNet50 on ImageNet
 
 ## Requirements
     Keras version >= 2.2.5
@@ -20,9 +20,9 @@ Here is an illustration of the optimizer using the simple 6-layer CNN https://ke
 
 There are three hyperparameters: Learning rate (lr), sparsity control mu (mu), and initial sparse control constant (c) in gRDA optimizer.
 
-* lr: typically a small value, e.g. 0.005. If the minibatch size is larger, then this value should be larger.
-* mu: 0 < mu < 1. The greater the value, the network will be more sparse, without sacrificing the testing accuracy.
-* c: a small number, e.g. 0 < c < 0.05. This usually has small effect on the performance.
+* lr: as a rule of thumb, use the learning rate for SGD. Scale the learning rate with the batch size.
+* mu: 0.5 < mu < 1. Greater mu will make the parameters more sparse. In order to maintain comparable accuracy with the original network, for large tasks e.g. ImageNet, mu can set close to 0.5, e.g. 0.501. For small tasks, e.g. CIFAR-10, mu can be larger, e.g. 0.6. 
+* c: a small number, e.g. 0 < c < 0.005. Greater c causes the model to be more sparse, especially at the early stage of training. c usually has small effect on the late stage of training. The influence of c is smaller than th influence of mu.
 
 ### Keras
 
@@ -62,6 +62,8 @@ optimizer = gRDA(model.parameters(), lr=0.005, c=0.1, mu=0.5)
 # optimizer.step()
 ```
 
+See ```mnist_test_pytorch.py``` for an illustration on customized learning rate schedule.
+
 ### PlaidML 
 
 Be cautious that it can be unstable with Mac when GPU is implemented, see https://github.com/plaidml/plaidml/issues/168. 
@@ -83,3 +85,19 @@ plaidml.keras.install_backend()
 from grda_plaidml import GRDA
 ```
 Then the optimizer can be used in the same way as Keras.
+
+### Experiments
+
+#### ResNet-50 on ImageNet 
+
+These PyTorch models are based on the official implementation: [https://github.com/pytorch/examples/blob/master/imagenet/main.py](https://github.com/pytorch/examples/blob/master/imagenet/main.py)
+
+| lr schedule                                   | c     | mu    | epoch | sparsity | top1 accuracy | file size | link                                                                       |
+|-----------------------------------------------|-------|-------|-------|----------|---------------|-----------|----------------------------------------------------------------------------|
+| fix lr=0.1 (SGD, no momentum or weight decay) | /     | /     | 89    | /        | 68.71         | 98MB      | [link](https://drive.google.com/open?id=1PRkLaINIS14D3l553X1ncVBjqL5ua3Np) |
+| fix lr=0.1                                    | 0.005 | 0.55  | 145   | 91.54    | 69.76         | 195MB     | [link](https://drive.google.com/open?id=1nzjT1dcZnagWdtkK14wHCDI54UrmphCH) |
+| fix lr=0.1                                    | 0.005 | 0.51  | 136   | 87.38    | 70.35         | 195MB     | [link](https://drive.google.com/open?id=1PQ2C5kNOvl0NpDa-_h9YxlW0BD5pMylZ) |
+| fix lr=0.1                                    | 0.005 | 0.501 | 145   | 86.03    | 70.60         | 195MB     | [link](https://drive.google.com/open?id=12o3hUHV5ffjcBkN5xos5qFG8365Wk2xl) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.55  | 150   | 91.59    | 73.24         | 195MB     | [link](https://drive.google.com/open?id=1jBFmHmtsPsoIS5KjApjv8ohoJ5_RQqPx) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.51  | 146   | 87.28    | 73.14         | 195MB     | [link](https://drive.google.com/open?id=1UlwjvFO-Oxl9VVV36k5UrWZXWhh2nvDN) |
+| lr=0.1 (ep1-140) lr=0.01 (after ep140)        | 0.005 | 0.501 | 148   | 86.09    | 73.13         | 195MB     | [link](https://drive.google.com/open?id=1MQt6T7fc6SZlmMdGM6jOpaKHG6Ca5ulr) |
