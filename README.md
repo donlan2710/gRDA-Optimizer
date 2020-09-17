@@ -24,7 +24,7 @@ There are three hyperparameters: Learning rate (lr), sparsity control mu (mu), a
 
 * lr: as a rule of thumb, use the learning rate for SGD. Scale the learning rate with the batch size.
 * mu: 0.5 < mu < 1. Greater mu will make the parameters more sparse. In order to maintain comparable accuracy with the original network, for large tasks e.g. ImageNet, mu can set close to 0.5, e.g. 0.501. For small tasks, e.g. CIFAR-10, mu can be larger, e.g. 0.6. 
-* c: a small number, e.g. 0 < c < 0.005. Greater c causes the model to be more sparse, especially at the early stage of training. c usually has small effect on the late stage of training. The influence of c is smaller than th influence of mu.
+* c: a small number, e.g. 0 < c < 0.005. Greater c causes the model to be more sparse, especially at the early stage of training. c usually has small effect on the late stage of training. The influence of c is smaller than the influence of mu.
 
 ### Keras
 
