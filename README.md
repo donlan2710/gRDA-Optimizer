@@ -4,7 +4,7 @@
 
 Please cite the following publication when referring to gRDA:
 
-Chao, S.-K., Wang, Z., Xing, Y. and Cheng, G. (2020). Directional pruning of deep neural networks. NeurIPS 2020. Available at: https://arxiv.org/abs/2006.09358
+Chao, S.-K., Wang, Z., Xing, Y. and Cheng, G. (2020). Directional pruning of deep neural networks. *NeurIPS 2020*. Available at: https://arxiv.org/abs/2006.09358
 
 Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam, respectively.
 
