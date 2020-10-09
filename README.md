@@ -9,7 +9,7 @@ Chao, S.-K., Wang, Z., Xing, Y. and Cheng, G. (2020). Directional pruning of dee
 <p align="center">
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/intro_cifar100_conn_thumb.png' width=46%/>
 <br>
-<em> Figure: The DP is the asymptotic directional pruning solution computed with gRDA, which lies in the same minimum valle as the SGD. DP has sparsity 90.3 and test accuracy 76.81%, while the SGD solution has no zero elements and has 76.6%. This example uses wide ResNet28x10 on CIFAR-100. See the paper fo more detail. </em>
+<em> Figure: The DP is the asymptotic directional pruning solution computed with gRDA, which lies in the same minimum valley as the SGD on the training loss landscape. DP has sparsity 90.3 and test accuracy 76.81%, while the SGD solution has no zero elements and has 76.6%. This example uses wide ResNet28x10 on CIFAR-100. See the paper fo more detail. </em>
 </p>
 Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam, respectively.
 
