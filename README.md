@@ -2,15 +2,15 @@
 
 "Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. 
 
-#### Citation: Chao, S.-K. and Cheng, G. (2019). gRDA and its dynamics. https://arxiv.org/pdf/1909.10072.pdf
+
+Please cite the following publication when referring to gRDA:
+
+Chao, S.-K., Wang, Z., Xing, Y. and Cheng, G. (2020). Directional pruning of deep neural networks. *NeurIPS 2020*. Available at: https://arxiv.org/abs/2006.09358
+
 
 Here is an illustration of the optimizer using the simple 6-layer CNN https://keras.io/examples/cifar10_cnn/. The experiments are done using lr = 0.005 for SGD, SGD momentum and gRDAs. c = 0.005 for gRDA. lr = 0.005 and 0.001 for Adagrad and Adam, respectively.
 
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_acc_test_multiopt.png' width=46%/> <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/cifar_cnn_nonzero_weights_multiopt.png' width=46%/>
-
-## Update
-
-02/27/2020: upload the trained parameters of ResNet50 on ImageNet
 
 ## Requirements
     Keras version >= 2.2.5
@@ -22,7 +22,7 @@ There are three hyperparameters: Learning rate (lr), sparsity control mu (mu), a
 
 * lr: as a rule of thumb, use the learning rate for SGD. Scale the learning rate with the batch size.
 * mu: 0.5 < mu < 1. Greater mu will make the parameters more sparse. In order to maintain comparable accuracy with the original network, for large tasks e.g. ImageNet, mu can set close to 0.5, e.g. 0.501. For small tasks, e.g. CIFAR-10, mu can be larger, e.g. 0.6. 
-* c: a small number, e.g. 0 < c < 0.005. Greater c causes the model to be more sparse, especially at the early stage of training. c usually has small effect on the late stage of training. The influence of c is smaller than th influence of mu.
+* c: a small number, e.g. 0 < c < 0.005. Greater c causes the model to be more sparse, especially at the early stage of training. c usually has small effect on the late stage of training. The influence of c is smaller than the influence of mu.
 
 ### Keras
 
