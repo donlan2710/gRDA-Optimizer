@@ -1,6 +1,6 @@
 # Code for gRDA
 
-The code is for NeurIPS 2020 submission **Directional Pruning of Deep Neural Networks**. 
+The code is for the paper **Directional Pruning of Deep Neural Networks** published in *NeurIPS 2020*. 
 
 ## Content 
 
