@@ -1,6 +1,6 @@
-# Code for gRDA
+# Code for results reproduction
 
-The code is for the paper **Directional Pruning of Deep Neural Networks** published in *NeurIPS 2020*. 
+The code here reproduces the numerical results of the paper **Directional Pruning of Deep Neural Networks** published in *NeurIPS 2020*. 
 
 ## Content 
 
