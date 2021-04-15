@@ -3,10 +3,10 @@
 "Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. 
 
 
-Please consider to cite our paper:
+If you find our method useful, please consider to cite our paper:
 
 
-@inproceedings{NEURIPS2020_a09e75c5,
+	@inproceedings{NEURIPS2020_a09e75c5,
 	author = {Chao, Shih-Kang and Wang, Zhanyu and Xing, Yue and Cheng, Guang},
 	booktitle = {Advances in Neural Information Processing Systems},
 	editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
