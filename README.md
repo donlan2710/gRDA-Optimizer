@@ -6,7 +6,7 @@
 If you find our method useful, please consider to cite our paper:
 
 
-	@inproceedings{NEURIPS2020_a09e75c5,
+	@inproceedings{chao2021dp,
 	author = {Chao, Shih-Kang and Wang, Zhanyu and Xing, Yue and Cheng, Guang},
 	booktitle = {Advances in Neural Information Processing Systems},
 	editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
@@ -16,7 +16,7 @@ If you find our method useful, please consider to cite our paper:
 	url = {https://proceedings.neurips.cc/paper/2020/file/a09e75c5c86a7bf6582d2b4d75aad615-Paper.pdf},
 	volume = {33},
 	year = {2020},
-	Bdsk-Url-1 = {https://proceedings.neurips.cc/paper/2020/file/a09e75c5c86a7bf6582d2b4d75aad615-Paper.pdf}}
+	}
 
 <p align="center">
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/intro_cifar100_conn_thumb.png' width=46%/>
