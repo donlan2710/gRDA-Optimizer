@@ -3,9 +3,21 @@
 "Generalized Regularized Dual Averaging" is an optimizer that can learn a small sub-network during training, if one starts from an overparameterized dense network. 
 
 
-Please cite the following publication when referring to gRDA:
+Please consider to cite our paper:
 
-Chao, S.-K., Wang, Z., Xing, Y. and Cheng, G. (2020). Directional pruning of deep neural networks. *NeurIPS 2020*. Available at: https://arxiv.org/abs/2006.09358
+
+@inproceedings{NEURIPS2020_a09e75c5,
+	author = {Chao, Shih-Kang and Wang, Zhanyu and Xing, Yue and Cheng, Guang},
+	booktitle = {Advances in Neural Information Processing Systems},
+	editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
+	pages = {13986--13998},
+	publisher = {Curran Associates, Inc.},
+	title = {Directional Pruning of Deep Neural Networks},
+	url = {https://proceedings.neurips.cc/paper/2020/file/a09e75c5c86a7bf6582d2b4d75aad615-Paper.pdf},
+	volume = {33},
+	year = {2020},
+	Bdsk-Url-1 = {https://proceedings.neurips.cc/paper/2020/file/a09e75c5c86a7bf6582d2b4d75aad615-Paper.pdf}}
+
 <p align="center">
 <img src = 'https://github.com/donlan2710/gRDA-Optimizer/blob/master/pics/intro_cifar100_conn_thumb.png' width=46%/>
 <br>
